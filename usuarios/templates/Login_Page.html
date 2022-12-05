@@ -1,0 +1,50 @@
+ <!DOCTYPE html>
+ <html lang="pt-br"></html>
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"content="IE=edge">
+    <meta name="viewport" content ="width=device, initial-scale=1.0">
+    <title>Página de Login</title>
+      </head>
+   <body>
+
+    <link rel="stylesheet" href="style.css">
+    <div class=" telalogin">
+      <h1>Login</h1>
+      <input type="text" placeholder="Matrícula" id="matricula">
+      
+      <br><br>
+      <input type="password" placeholder="Senha" id="senha">
+      
+      <br><br>
+      <button onclick="logar(); return false">Entrar</button>
+      <br><br>
+
+
+      <script>
+
+
+        function logar(){
+
+            var matricula = document.getElementById('matricula').value;
+            var senha = document.getElementById('senha').value;
+
+            if(matricula == "admin" && senha == "admin"){
+                alert('Sucesso');
+                location.href = "home.html";
+            }else{
+                alert('Usuario ou senha incorretos');
+            }
+
+        }
+
+    </script>
+
+      
+				<div class="foot-lnk">
+					<a href="#forgot">Esqueceu a senha? Entre em contato</a>
+				</div>
+      
+    </div>
+    
+   </body>

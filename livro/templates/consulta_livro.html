@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{%block 'titulo' %} LibraryControl - Home Page {% endblock %}
+
+{%block 'conteudo' %}
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Deseja mesmo devolver o Livro?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <br>
+
+        <a href="{% url 'devolver_livro' id_livro %}"  class="btn btn-danger btn-lg">Devolver Livro</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <br>
+    <p>
+      <label>Nome do Livro:</label>
+      <input class="form-control" type="text" value="{{livro.nome}}">
+    </p>
+
+    <p>
+      <label>Autor:</label>
+      <input style="width: 40%" class="form-control" type="text" value="{{livro.autor}}">
+    </p>
+
+    <p>
+      <label>Data do Cadastro:</label>
+      <input style="width: 40%" class="form-control" type="date" value="{{livro.data_cadastro}}">
+    </p>
+
+    
+    
+    
+    {% if livro.emprestado %}
+      <label>Emprestado: &nbsp;</label>
+      <input style="transform: scale(1.5)" checked type="checkbox" name = "emprestado">
+
+    {% else %}
+    <label>Emprestado: &nbsp;</label>
+    <input style="transform: scale(1.5)"  type="checkbox" name = "emprestado">
+
+                  
+    {% endif %}
+    <br>
+    <br>
+
+    <input type="submit" class="btn btn-success btn-lg" value="Salvar">
+
+    <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#exampleModal2">
+      Devolver Livro
+    </button>
+</div>
+
+
+{% endblock %}
